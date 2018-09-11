@@ -319,12 +319,13 @@ class MetaAtom:
                     print ("A new metaAtom is being created \n")
                     newMetaAtom = self.convertUnbondedAtomToMetaAtom(self.mol[i])
                     self.metaMolecule.addMetaAtom(newMetaAtom)
-                    atomsToRemove.append(i)
+                atomsToRemove.append(i)
         
         # Now need to remove atoms
+        print ("Length of ring before removal: " + str(len(self.mol)) + "\n")
         for i in range(len(atomsToRemove)):
             self.mol.pop(atomsToRemove[i])
-        
+        print ("Length of ring after removal: " + str(len(self.mol)) + "\n")
         # Finally need to update metaMolecule with new mol    
         self.metaMolecule.updateListMols(self)            
     

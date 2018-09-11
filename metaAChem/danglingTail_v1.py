@@ -40,6 +40,12 @@ class danglingTail:
             unbonding it.
         """
         self.bonded = False # Set bonding status to false
+        # Go through each dangling node in tail and if  dangling node is bonded then break the bond
+        for i in range(len(self.nodeList)):
+            # If node bonded then unbond it
+            if self.nodeList[i].bonded == True:
+                self.nodeList[i].bondBroken()
+                
         
         
 

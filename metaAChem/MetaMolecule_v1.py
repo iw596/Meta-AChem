@@ -288,6 +288,17 @@ class MetaMolecule:
             self.metaAtoms.pop(indexMetaAtom)
             self.listMols.pop(indexMetaAtom)
     
+    def removedUnbondedAtoms (self):
+        """This function goes through every metaatom and removes atoms which are no longer atttached to
+           the ring
+        """
+        
+        for i in range(len(self.metaAtoms)):
+            # For every meta atom call function which removes atoms with both spikes unbonded
+            self.metaAtoms[i].removeDoubleUnbondedAtoms()
+    
+    
+    
     def stabilityDebugTest (self):
         """ This function tests that the intensty of the metamolecule is stable over time by calculating the initiail intensity, then
             the state of the metaatom before updating the metaatom again and recalculating the stability if the test is succesfull

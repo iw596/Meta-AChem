@@ -195,9 +195,12 @@ def isMetaMoleculeStable (metaSpike1,metaSpike2,metaMolecule,smallest,numBonds):
     metaMolecule.calculateIntensity() # Recaclualte intensity
     # This will keep altering the structure until it becomes stable
     if stable == False:
-        # Need to add function to check dangling tails once dangling tails added
+        # Check dangling tails and spikes
         metaMolecule.checkDanglingNodeStability ()
         metaMolecule.checkDanglingTailStability()
+        # Check structure of rings in metaMolecule
+        metaMolecule.removedUnbondedAtoms()
+        #Recalculate intensity
         metaMolecule.calculateIntensity()
       
         isMetaMoleculeStable (metaSpike1,metaSpike2,metaMolecule,smallest,numBonds)
